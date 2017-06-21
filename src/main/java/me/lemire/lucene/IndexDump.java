@@ -60,12 +60,11 @@ public class IndexDump {
 
                 FSDirectory dir = FSDirectory.open(outputDir);
 
-                StandardAnalyzer analyzer = new StandardAnalyzer(
-                        Version.LUCENE_43);// default
-                                           // stop
-                                           // words
+                StandardAnalyzer analyzer = new StandardAnalyzer();// default
+                                                                   // stop
+                                                                   // words
                 IndexWriterConfig config = new IndexWriterConfig(
-                        Version.LUCENE_43, analyzer);
+                        Version.LUCENE_4_10_4, analyzer);
                 config.setOpenMode(IndexWriterConfig.OpenMode.CREATE);// overwrites
                                                                       // if
                                                                       // needed

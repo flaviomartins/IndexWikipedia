@@ -46,10 +46,9 @@ public class CreateFrequencyDictionary {
 
                 // we should be "ok" now
 
-                StandardAnalyzer analyzer = new StandardAnalyzer(
-                        Version.LUCENE_43);// default
-                                           // stop
-                                           // words
+                StandardAnalyzer analyzer = new StandardAnalyzer();// default
+                                                                   // stop
+                                                                   // words
                 DocMaker docMaker = new DocMaker();
                 Properties properties = new Properties();
                 properties.setProperty("content.source.forever", "false"); 
@@ -72,7 +71,7 @@ public class CreateFrequencyDictionary {
                         while ((doc = docMaker.makeDocument()) != null) {
                                 if(doc.getField("body") == null) continue;
                                 TokenStream stream = doc.getField("body")
-                                        .tokenStream(analyzer);
+                                        .tokenStream(analyzer, null);
                                 CharTermAttribute cattr = stream
                                         .addAttribute(CharTermAttribute.class);
 

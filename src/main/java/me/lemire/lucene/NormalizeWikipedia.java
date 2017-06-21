@@ -74,10 +74,9 @@ public class NormalizeWikipedia {
                 br.close();
                 System.out.println("#Loaded "+hm.size()+" words from dictionary.");
 
-                StandardAnalyzer analyzer = new StandardAnalyzer(
-                        Version.LUCENE_43);// default
-                                           // stop
-                                           // words
+                StandardAnalyzer analyzer = new StandardAnalyzer();// default
+                                                                   // stop
+                                                                   // words
                 DocMaker docMaker = new DocMaker();
                 Properties properties = new Properties();
                 properties.setProperty("content.source.forever", "false"); 
@@ -100,7 +99,7 @@ public class NormalizeWikipedia {
                                 ia.clear();
                                 if(doc.getField("body") == null) continue;
                                 TokenStream stream = doc.getField("body")
-                                        .tokenStream(analyzer);
+                                        .tokenStream(analyzer, null);
                                 CharTermAttribute cattr = stream
                                         .addAttribute(CharTermAttribute.class);
 
