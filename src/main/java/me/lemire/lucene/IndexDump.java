@@ -50,7 +50,7 @@ public class IndexDump {
                                 + " is not a directory!");
                         return;
                 }
-                if (!wikipediafile.canWrite()) {
+                if (!outputDir.canWrite()) {
                         System.out.println("Can't write to "
                                 + outputDir.getAbsolutePath());
                         return;
