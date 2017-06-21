@@ -29,8 +29,8 @@ public class IndexDump {
                 File wikipediafile = new File(args[0]);
                 int commitInterval = 1000000;
 
-                if (args.length >= 2) {
-                        commitInterval = Integer.parseInt(args[1]);
+                if (args.length >= 3) {
+                        commitInterval = Integer.parseInt(args[2]);
                 }
 
                 System.out.println("Commiting after indexing " + commitInterval + " docs");
